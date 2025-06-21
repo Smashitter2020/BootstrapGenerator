@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap Border Color Generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { padding: 2rem; }
+    #previewBox {
+      padding: 2rem;
+      margin-top: 1rem;
+      text-align: center;
+    }
+    pre {
+      background-color: #f8f9fa;
+      padding: 1rem;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+  <h2>Bootstrap 5 Border Color Generator</h2>
+
+  <div class="mb-3">
+    <label class="form-label">Border Color:</label>
+    <select id="borderColor" class="form-select">
+      <option value="primary">Primary</option>
+      <option value="secondary">Secondary</option>
+      <option value="success">Success</option>
+      <option value="danger">Danger</option>
+      <option value="warning">Warning</option>
+      <option value="info">Info</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+      <option value="white">White</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Border Thickness:</label>
+    <select id="borderThickness" class="form-select">
+      <option value="border-1">Thin (1px)</option>
+      <option value="border-2">Medium (2px)</option>
+      <option value="border-3">Thick (3px)</option>
+      <option value="border-4">Thicker (4px)</option>
+      <option value="border-5">Thickest (5px)</option>
+    </select>
+  </div>
+
+  <div class="form-check mb-3">
+    <input class="form-check-input" type="checkbox" id="roundedCheck">
+    <label class="form-check-label" for="roundedCheck">Rounded Corners</label>
+  </div>
+
+  <button onclick="generateBorder()" class="btn btn-outline-primary">Generate</button>
+
+  <div class="mt-4" id="preview"></div>
+  <pre class="mt-3" id="codeBox"></pre>
+  </div>
+  <script>
+    function generateBorder() {
+      const color = document.getElementById("borderColor").value;
+      const thickness = document.getElementById("borderThickness").value;
+      const rounded = document.getElementById("roundedCheck").checked ? "rounded" : "";
+
+      const classes = `border border-${color} ${thickness} ${rounded}`.trim();
+      const html = `<div class="${classes}" id="previewBox">This is a bordered box</div>`;
+
+      document.getElementById("preview").innerHTML = html;
+      document.getElementById("codeBox").textContent = html;
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
