@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap Button Group Generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { padding: 2rem; }
+    pre { background-color: #f8f9fa; padding: 1rem; border-radius: 6px; }
+    .btn-preview { margin-right: 0.5rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+  <h2>Bootstrap 5 Button Group Generator</h2>
+
+  <div class="mb-3">
+    <label class="form-label">Button Label:</label>
+    <input type="text" id="btnLabel" class="form-control" placeholder="e.g. Save">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Button Style:</label>
+    <select id="btnStyle" class="form-select">
+      <option value="primary">Primary</option>
+      <option value="secondary">Secondary</option>
+      <option value="success">Success</option>
+      <option value="danger">Danger</option>
+      <option value="warning">Warning</option>
+      <option value="info">Info</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+  </div>
+
+  <button onclick="addButton()" class="btn btn-outline-success me-2">Add Button</button>
+  <button onclick="removeButton()" class="btn btn-outline-danger">Remove Last</button>
+
+  <div class="mt-4">
+    <div class="btn-group" role="group" id="buttonGroup"></div>
+  </div>
+
+  <pre class="mt-3" id="codeBox"></pre>
+  </div>
+  <script>
+    function addButton() {
+      const label = document.getElementById("btnLabel").value.trim() || "Button";
+      const style = document.getElementById("btnStyle").value;
+      const group = document.getElementById("buttonGroup");
+
+      const btn = document.createElement("button");
+      btn.className = `btn btn-${style} btn-preview`;
+      btn.textContent = label;
+      group.appendChild(btn);
+
+      updateCode();
+    }
+
+    function removeButton() {
+      const group = document.getElementById("buttonGroup");
+      if (group.lastChild) {
+        group.removeChild(group.lastChild);
+        updateCode();
+      }
+    }
+
+    function updateCode() {
+      const group = document.getElementById("buttonGroup");
+      const buttons = [...group.children].map(btn => btn.outerHTML).join("\n");
+      const html = `<div class="btn-group" role="group">\n${buttons}\n</div>`;
+      document.getElementById("codeBox").textContent = html;
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
