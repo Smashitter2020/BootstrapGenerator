@@ -28,6 +28,35 @@
       <option value="dark">Dark</option>
     </select>
   </div>
+  <div class="mb-3">
+    <label for="linkOpacity" class="form-label">Link Opacity:</label>
+    <select id="linkOpacity" class="form-select">
+      <option value=" link-opacity-10">10</option>
+      <option value=" link-opacity-25">25</option>
+      <option value=" link-opacity-50">50</option>
+      <option value=" link-opacity-75">75</option>
+      <option value="" selected>100</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="underlineOpacity" class="form-label">Underline Opacity:</label>
+    <select id="underlineOpacity" class="form-select">
+      <option value=" link-underline-opacity-10">10</option>
+      <option value=" link-underline-opacity-25">25</option>
+      <option value=" link-underline-opacity-50">50</option>
+      <option value=" link-underline-opacity-75">75</option>
+      <option value="" selected>100</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="linkOffset" class="form-label">Link Offset:</label>
+    <select id="linkOffset" class="form-select">
+      <option value="" selected>Default</option>
+      <option value=" link-offset-1">1</option>
+      <option value=" link-offset-2">2</option>
+      <option value=" link-offset-3">3</option>
+    </select>
+  </div>
   <button onclick="generateLink()" class="btn btn-outline-dark">Generate Link</button>
   <div id="preview" class="mt-4"></div>
   <pre id="codeBox" class="mt-3 bg-light p-3 rounded border"></pre>
@@ -36,7 +65,11 @@
     function generateLink() {
       const label = document.getElementById("linkLabel").value.trim() || "Label";
       const color = document.getElementById("linkColor").value;
-      const linkHTML = `<a href="#" class="link-${color}">${label}</a>`;
+      const opacity = document.getElementById("linkOpacity").value;
+      const opacityUnderline = document.getElementById("underlineOpacity").value;
+      const offsetLink = document.getElementById("linkOffset").value;
+      
+      const linkHTML = `<a href="#" class="link-${color}${opacity}${opacityUnderline}${offsetLink}">${label}</a>`;
       
       document.getElementById("preview").innerHTML = linkHTML;
       document.getElementById("codeBox").textContent = linkHTML;
