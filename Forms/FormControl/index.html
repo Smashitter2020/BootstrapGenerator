@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Control Generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { padding: 2rem; }
+    pre { background-color: #f8f9fa; padding: 1rem; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+  <h2>Bootstrap 5 Form Control Generator</h2>
+
+  <div class="mb-3">
+    <label class="form-label">Placeholder Text:</label>
+    <input type="text" id="labelText" class="form-control" value="Email address">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Input Type:</label>
+    <select id="inputType" class="form-select">
+      <option value="text">Text</option>
+      <option value="email">Email</option>
+      <option value="password">Password</option>
+      <option value="number">Number</option>
+    </select>
+  </div>
+
+  <div class="form-check mb-3">
+    <input class="form-check-input" type="checkbox" id="disabledCheck">
+    <label class="form-check-label" for="disabledCheck">Disabled</label>
+  </div>
+
+  <button onclick="generateFormInput()" class="btn btn-outline-primary">Generate</button>
+
+  <div class="mt-4" id="preview"></div>
+  <pre class="mt-3" id="codeBox"></pre>
+  </div>
+  <script>
+    function generateFormInput() {
+      const label = document.getElementById("labelText").value || "Label";
+      const type = document.getElementById("inputType").value;
+      const disabled = document.getElementById("disabledCheck").checked ? "disabled" : "";
+
+      const html = `<input type="${type}" class="form-control" placeholder="${label}" ${disabled}>`;
+
+      document.getElementById("preview").innerHTML = html;
+      document.getElementById("codeBox").textContent = html;
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
