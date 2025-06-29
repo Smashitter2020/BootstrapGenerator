@@ -32,12 +32,9 @@
       <option value="grow">Grow</option>
     </select>
   </div>
-  <div class="mb-3">
-    <label for="spinnerSize" class="form-label">Spinner Size:</label>
-    <select id="spinnerSize" class="form-select">
-      <option value="">Default</option>
-      <option value="sm">Small</option>
-    </select>
+  <div class="form-check mb-3">
+    <input class="form-check-input" type="checkbox" id="smallCheck">
+    <label class="form-check-label" for="smallCheck">Small size</label>
   </div>
   <button onclick="generateSpinner()" class="btn btn-outline-dark">Generate Spinner</button>
   <div id="preview" class="mt-4"></div>
@@ -46,10 +43,10 @@
   <script>
     function generateSpinner() {
       const color = document.getElementById("spinnerColor").value;
-      const size = document.getElementById("spinnerSize").value;
       const spinnerType = document.getElementById("spinnerType").value;
+      const size = document.getElementById("smallCheck").checked ? ` spinner-${spinnerType}-sm` : "";
 
-      const buttonHTML = `<div class="spinner-${spinnerType} text-${color} ${size : ""}"></div>`;
+      const buttonHTML = `<div class="spinner-${spinnerType} text-${color}${size}"></div>`;
       document.getElementById("preview").innerHTML = buttonHTML;
       document.getElementById("codeBox").textContent = buttonHTML;
     }
