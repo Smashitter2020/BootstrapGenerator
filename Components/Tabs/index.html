@@ -14,7 +14,7 @@
   <div class="container">
   <h2>Bootstrap 5 Tabs Generator</h2>
 
-  <div id="tabInputs" class="tab-inputs p-5 border border-1 rounded">
+  <div id="tabInputs" class="tab-inputs p-5 border rounded-2 overflow-y-auto" style="height: 400px;">
     <div class="mb-3">
       <input class="form-control mb-2" placeholder="Tab Label" data-label value="Tab 1">
       <textarea class="form-control" rows="2" placeholder="Tab Content" data-content>Content for Tab 1</textarea>
@@ -43,7 +43,7 @@
       div.className = 'mb-3';
       div.innerHTML = `
         <input class="form-control mb-2" placeholder="Tab Label" data-label value="New Tab">
-        <textarea class="form-control" rows="2" placeholder="Tab Content" data-content>New tab content</textarea>
+        <textarea class="form-control" rows="4" placeholder="Tab Content" data-content>New tab content</textarea>
       `;
       tabInputs.appendChild(div);
     }
