@@ -36,7 +36,7 @@
     <label for="spinnerSize" class="form-label">Spinner Size:</label>
     <select id="spinnerSize" class="form-select">
       <option value="">Default</option>
-      <option value="spinner-sm">Small</option>
+      <option value="sm">Small</option>
     </select>
   </div>
   <button onclick="generateSpinner()" class="btn btn-outline-dark">Generate Spinner</button>
@@ -49,7 +49,7 @@
       const size = document.getElementById("spinnerSize").value;
       const spinnerType = document.getElementById("spinnerType").value;
 
-      const buttonHTML = `<div class="spinner-${spinnerType} text-${color} ${size}"></div>`;
+      const buttonHTML = `<div class="spinner-${spinnerType} text-${color} ${size : ""}"></div>`;
       document.getElementById("preview").innerHTML = buttonHTML;
       document.getElementById("codeBox").textContent = buttonHTML;
     }
