@@ -46,8 +46,9 @@
       const text = document.getElementById("btnText").value || "Click Me";
       const color = document.getElementById("btnColor").value;
       const size = document.getElementById("btnSize").value;
+      const disabled = document.getElementById("disabledCheck").checked ? "disabled" : "";
 
-      const buttonHTML = `<button class="btn btn-${color} ${size}">${text}</button>`;
+      const buttonHTML = `<button class="btn btn-${color} ${size}"${disabled}>${text}</button>`;
       document.getElementById("preview").innerHTML = buttonHTML;
       document.getElementById("codeBox").textContent = buttonHTML;
     }
