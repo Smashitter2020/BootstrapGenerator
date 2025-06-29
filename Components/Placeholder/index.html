@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bootstrap Button Generator</title>
+  <title>Bootstrap Placeholder Generator</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body { padding: 2rem; }
-    #preview button { margin-top: 1rem; }
   </style>
 </head>
 <body>
@@ -26,10 +25,18 @@
     </select>
   </div>
   <div class="mb-3">
+    <label for="placeholderAnim" class="form-label">Placeholder Animation:</label>
+    <select id="placeholderAnim" class="form-select">
+      <option value="">None</option>
+      <option value="glow">Glow</option>
+      <option value="wave">Wave</option>
+    </select>
+  </div>
+  <div class="mb-3">
     <label for="columnWidth" class="form-label">Width (columns):</label>
     <input id="columnWidth" type="range" class="form-range" min="1" max="12" value="6">
   </div>
-  <button onclick="generatePlaceholder()" class="btn btn-outline-dark">Generate Button</button>
+  <button onclick="generatePlaceholder()" class="btn btn-outline-dark">Generate Placeholder</button>
   <div id="preview" class="mt-4"></div>
   <pre id="codeBox" class="mt-3 bg-light p-3 rounded border"></pre>
   </div>
