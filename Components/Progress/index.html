@@ -58,7 +58,7 @@
       const striped = document.getElementById("stripedCheck").checked ? " progress-bar-striped" : "";
       const animated = document.getElementById("animatedCheck").checked ? "progress-bar-animated " : "";
 
-      const labelHTML = label ? `<div>${label}</div>` : "";
+      const labelHTML = label ? `<label>${label}</label>` : "";
       const barHTML = `${labelHTML}
 <div class="progress">
   <div class="progress-bar${striped} ${animated}bg-${color}" role="progressbar" style="width: ${progress}%;" aria-valuenow="${progress}" aria-valuemin="0" aria-valuemax="100">${progress}%</div>
