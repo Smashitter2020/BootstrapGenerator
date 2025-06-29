@@ -18,6 +18,11 @@
     <input type="text" id="itemText" class="form-control" placeholder="e.g. Task 1">
   </div>
 
+  <div class="form-check mb-3">
+    <input class="form-check-input" type="checkbox" id="actionCheck">
+    <label class="form-check-label" for="actionCheck">Action</label>
+  </div>
+
   <button onclick="addItem()" class="btn btn-outline-success me-2">Add Item</button>
   <button onclick="removeItem()" class="btn btn-outline-danger">Remove Last</button>
 
@@ -31,7 +36,8 @@
     function addItem() {
       const text = document.getElementById("itemText").value.trim() || "New Item";
       const li = document.createElement("li");
-      li.className = "list-group-item";
+      const action = document.getElementById("actionCheck").checked ? " list-group-item-action" : "";
+      li.className = `list-group-item${action}`;
       li.textContent = text;
       document.getElementById("listGroup").appendChild(li);
       updateCode();
