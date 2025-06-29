@@ -34,10 +34,10 @@
   </div>
   <script>
     function generateLink() {
-      const label = document.getElementById("linkLabel").value.trim(); || "Label";
+      const label = document.getElementById("linkLabel").value.trim() || "Label";
       const color = document.getElementById("linkColor").value;
-
       const linkHTML = `<a href="#" class="link-${color}">${label}</a>`;
+      
       document.getElementById("preview").innerHTML = linkHTML;
       document.getElementById("codeBox").textContent = linkHTML;
     }
