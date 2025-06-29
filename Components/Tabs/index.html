@@ -22,11 +22,11 @@
   </div>
 
   <div class="mb-3">
-    <label class="form-label">Tab Style:</label>
+    <label class="form-label" for="tabStyle">Tab Style:</label>
     <select id="tabStyle" class="form-select">
-      <option value="nav-tabs">Default</option>
-      <option value="nav-pills">Pills</option>
-      <option value="nav-underline">Underline</option>
+      <option value="tabs" selected>Default</option>
+      <option value="pills">Pills</option>
+      <option value="underline">Underline</option>
     </select>
   </div>
 
@@ -63,8 +63,9 @@
         `<div class="tab-pane fade${i === 0 ? ' show active' : ''}" id="${navId}-pane-${i}" role="tabpanel">${content}</div>`
       ).join('\n');
 
+      const tabStyle = document.getElementById("tabStyle").value;
       const html = `
-<ul class="nav nav-tabs" id="${navId}" role="tablist">
+<ul class="nav nav-${tabStyle}" id="${navId}" role="tablist">
 ${tabNav}
 </ul>
 <div class="tab-content mt-3" id="${navId}Content">
