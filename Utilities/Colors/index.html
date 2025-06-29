@@ -62,7 +62,7 @@
   </div>
   <div class="form-check mb-3">
     <input class="form-check-input" type="checkbox" id="gradientCheck">
-    <label class="form-check-label" for="gradientCheck">Gradient backgrounf</label>
+    <label class="form-check-label" for="gradientCheck">Gradient background</label>
   </div>
   <div class="form-check mb-3">
     <input class="form-check-input" type="checkbox" id="emphasisCheck">
@@ -81,9 +81,9 @@
       const content = document.getElementById("sampleText").value || "Hello, Bootstrap!";
       const subtle = document.getElementById("subtleCheck").checked ? "-subtle" : "";
       const emphasis = document.getElementById("emphasisCheck").checked ? "-emphasis" : "";
-      const gradient = document.getElementById("emphasisCheck").checked ? "bg-gradient" : "";
+      const gradient = document.getElementById("gradientCheck").checked ? " bg-gradient" : "";
 
-      const html = `<div class="bg-${bg}${subtle} ${gradient} text-${text}${emphasis}" id="previewBox">${content}</div>`;
+      const html = `<div class="bg-${bg}${subtle}${gradient} text-${text}${emphasis}" id="previewBox">${content}</div>`;
 
       document.getElementById("preview").innerHTML = html;
       document.getElementById("codeBox").textContent = html;
