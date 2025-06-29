@@ -49,10 +49,10 @@
       const progress = document.getElementById("progressValue").value;
       const color = document.getElementById("progressColor").value;
 
-      const labelHTML = label ? `<span class="me-2">${label}</span>` : "";
-      const barHTML = `
-<div class="progress">
-  ${labelHTML}<div class="progress-bar bg-${color}" role="progressbar" style="width: ${progress}%;" aria-valuenow="${progress}" aria-valuemin="0" aria-valuemax="100">${progress}%</div>
+      const labelHTML = label ? `<div>${label}</div>` : "";
+      const barHTML = `${labelHTML}
+      <div class="progress">
+  <div class="progress-bar bg-${color}" role="progressbar" style="width: ${progress}%;" aria-valuenow="${progress}" aria-valuemin="0" aria-valuemax="100">${progress}%</div>
 </div>`;
 
       document.getElementById("preview").innerHTML = barHTML;
