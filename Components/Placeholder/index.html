@@ -28,8 +28,8 @@
     <label for="placeholderAnim" class="form-label">Placeholder Animation:</label>
     <select id="placeholderAnim" class="form-select">
       <option value="">None</option>
-      <option value="glow">Glow</option>
-      <option value="wave">Wave</option>
+      <option value="placeholder-glow">Glow</option>
+      <option value="placeholder-wave">Wave</option>
     </select>
   </div>
   <div class="mb-3">
@@ -44,8 +44,9 @@
     function generatePlaceholder() {
       const color = document.getElementById("placeholderColor").value;
       const width = document.getElementById("columnWidth").value;
+      const animation = document.getElementById("placeholderAnim").value;
 
-      const placeholderHTML = `<span class="placeholder col-${width} bg-${color}"></span>`;
+      const placeholderHTML = `<span class="placeholder col-${width} bg-${color} ${animation}"></span>`;
       document.getElementById("preview").innerHTML = placeholderHTML;
       document.getElementById("codeBox").textContent = placeholderHTML;
     }
