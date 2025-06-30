@@ -13,12 +13,16 @@
   <div class="container">
   <h2>Bootstrap 5 Popover Generator</h2>
   <div class="mb-3">
+    <label for="btnText" class="form-label">Button Text:</label>
+    <input type="text" id="btnText" class="form-control" placeholder="e.g. Welcome!">
+  </div>
+  <div class="mb-3">
     <label for="popoverTitle" class="form-label">Popover Title:</label>
     <input type="text" id="popoverTitle" class="form-control" placeholder="e.g. Welcome!">
   </div>
   <div class="mb-3">
     <label for="popoverTitle" class="form-label">Popover Content:</label>
-    <input type="text" id="popoverContent" class="form-control" placeholder="e.g. Welcome to Bootstrap!">
+    <input type="text" id="popoverContent" class="form-control" placeholder="e.g. Content of the popover">
   </div>
   <div class="mb-3">
     <label for="popoverPlacement" class="form-label">Placement:</label>
@@ -37,13 +41,15 @@
   <script>
     const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
     const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
-    
+  </script>
+  <script>
     function generatePopover() {
-      const title = document.getElementById("popoverTitle").value || "Click Me";
-      const content = document.getElementById("popoverContent").value || "And here’s some amazing content. It’s very engaging. Right?";
+      const title = document.getElementById("popoverTitle").value.trim() || "Popover title";
+      const content = document.getElementById("popoverContent").value.trim() || "And here’s some amazing content. It’s very engaging. Right?";
       const placement = document.getElementById("popoverPlacement").value;
+      const label = document.getElementById("btnText").value.trim() || "Toggle popover";
       
-      const buttonHTML = `<button class="btn btn-primary" data-bs-toggle="popover" data-bs-title="${title}" data-bs-content="${content}" data-bs-placement="${placement}">Toggle popover</button>`;
+      const buttonHTML = `<button class="btn btn-primary" data-bs-toggle="popover" data-bs-title="${title}" data-bs-content="${content}" data-bs-placement="${placement}">${label}</button>`;
       document.getElementById("preview").innerHTML = buttonHTML;
       document.getElementById("codeBox").textContent = buttonHTML;
     }
