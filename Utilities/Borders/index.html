@@ -16,7 +16,6 @@
 <body>
   <div class="container">
   <h2>Bootstrap 5 Border Color Generator</h2>
-
   <div class="mb-3">
     <label class="form-label">Border Color:</label>
     <select id="borderColor" class="form-select">
@@ -31,7 +30,16 @@
       <option value="white">White</option>
     </select>
   </div>
-
+  <div class="mb-3">
+    <label class="form-label">Border Opacity:</label>
+    <select id="borderOpacity" class="form-select">
+      <option value="" selected>Default</option>
+      <option value="border-opacity-75">75</option>
+      <option value="border-opacity-50">50</option>
+      <option value="border-opacity-25">25</option>
+      <option value="border-opacity-10">10</option>
+    </select>
+  </div>
   <div class="mb-3">
     <label class="form-label">Border Thickness:</label>
     <select id="borderThickness" class="form-select">
@@ -58,8 +66,9 @@
       const color = document.getElementById("borderColor").value;
       const thickness = document.getElementById("borderThickness").value;
       const rounded = document.getElementById("roundedCheck").checked ? "rounded" : "";
+      const opacity = document.getElementById("borderOpacity").value;
 
-      const classes = `border border-${color} ${thickness} ${rounded}`.trim();
+      const classes = `border border-${color} ${thickness} ${rounded} ${opacity}`.trim();
       const html = `<div class="${classes}" id="previewBox">This is a bordered box</div>`;
 
       document.getElementById("preview").innerHTML = html;
