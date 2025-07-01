@@ -13,6 +13,16 @@
   <h2>Bootstrap 5 Dropdown Generator</h2>
 
   <div class="mb-3">
+    <label class="form-label" for="dropdownPlacement">Placement:</label>
+    <select id="dropdownPlacement" class="form-select">
+      <option value="dropdown" selected>Default</option>
+      <option value="dropup">Top</option>
+      <option value="dropstart">Left</option>
+      <option value="dropend">Right</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
     <label class="form-label">Dropdown Item Text:</label>
     <input type="text" id="itemText" class="form-control" placeholder="e.g. Action 1">
   </div>
@@ -24,6 +34,8 @@
   <pre class="mt-3 bg-light p-3 rounded border" id="codeBox"></pre>
   </div>
   <script>
+    const placement = document.getElementById("dropdownPlacement").value;
+
     function addDropdownItem() {
       const text = document.getElementById("itemText").value.trim() || "New Item";
       const li = document.createElement("li");
