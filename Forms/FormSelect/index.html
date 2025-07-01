@@ -22,6 +22,15 @@
     <input type="text" id="optionText" class="form-control" placeholder="e.g. Option 1">
   </div>
 
+  <div class="mb-3">
+    <label class="form-label">Size:</label>
+    <select id="inputSize" class="form-select">
+      <option value=" form-select-sm"> Small</option>
+      <option value="" selected>Default</option>
+      <option value=" form-select-lg"> Large</option>
+    </select>
+  </div>
+
   <button onclick="addOption()" class="btn btn-outline-success me-2">Add Option</button>
   <button onclick="removeOption()" class="btn btn-outline-danger">Remove Last</button>
 
@@ -45,12 +54,13 @@
     function updateSelect() {
       const label = document.getElementById("selectLabel").value.trim() || "Select an option";
       const selectId = "customSelect";
+      const size = document.getElementById("inputSize").value;
       const optionHTML = options.map((opt, i) =>
         `<option value="option${i + 1}">${opt}</option>`
       ).join("\n");
 
       const html = `
-<label for="${selectId}" class="form-label">${label}</label>
+<label for="${selectId}" class="form-label${size}">${label}</label>
 <select class="form-select" id="${selectId}">
   ${optionHTML}
 </select>`;
