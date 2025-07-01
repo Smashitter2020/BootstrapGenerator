@@ -93,7 +93,9 @@
     </select>
   </div>
   <button onclick="generateSize()" class="btn btn-primary">Generate</button>
-  <div id="preview" class="mt-3"></div>
+  <div class="w-100 mt-3" style="height: 300px;">
+    <div id="preview"></div>
+  </div>
   <pre id="codeBox" class="mt-3 bg-light p-3 rounded border"></pre>
   </div>
   <script>
@@ -105,7 +107,7 @@
       const marginHori = document.getElementById("marginHoriSpacing").value;
       const marginVeri = document.getElementById("marginVertSpacing").value;
       
-      const boxHTML = `<div class="p-${padding} px-${paddingHori} py-${paddingVert} m-${margin} mx-${paddingHori} my-${paddingVert} text-bg-primary rounded">Hello, Bootstrap!</div>`;
+      const boxHTML = `<div class="p-${padding} px-${paddingHori} py-${paddingVert} m-${margin} mx-${marginHori} my-${marginVert} text-bg-primary rounded">Hello, Bootstrap!</div>`;
       
       document.getElementById("preview").innerHTML = boxHTML;
       document.getElementById("codeBox").textContent = boxHTML;
