@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bootstrap Sizing Generator</title>
+  <title>Bootstrap Display Generator</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body { padding: 2rem; }
@@ -12,8 +12,8 @@
   <div class="container">
   <h2>Bootstrap 5 Display Generator</h2>
   <div class="mb-3">
-    <label for="widthSize" class="form-label">Display thpr:</label>
-    <select id="widthSize" class="form-select">
+    <label for="displayType" class="form-label">Display type:</label>
+    <select id="displayType" class="form-select">
       <option value="25">none</option>
       <option value="50">block</option>
       <option value="75">inline</option>
@@ -21,8 +21,8 @@
     </select>
   </div>
   <div class="mb-3">
-    <label for="heightSize" class="form-label">Responsive:</label>
-    <select id="heightSize" class="form-select">
+    <label for="responsiveSize" class="form-label">Responsive:</label>
+    <select id="responsiveSize" class="form-select">
       <option value="">none</option>
       <option value="-sm">Small</option>
       <option value="-md">Medium</option>
@@ -39,10 +39,10 @@
   </div>
   <script>
     function generateSize() {
-      const width = document.getElementById("widthSize").value;
-      const height = document.getElementById("heightSize").value;
+      const size = document.getElementById("responsiveSize").value;
+      const type = document.getElementById("displayType").value;
       
-      const boxHTML = `<div class="w-${width} h-${height} text-bg-primary rounded">Hello, Bootstrap!</div>`;
+      const boxHTML = `<div class="d${size}-${type}">Hello, Bootstrap!</div>`;
       
       document.getElementById("preview").innerHTML = boxHTML;
       document.getElementById("codeBox").textContent = boxHTML;
