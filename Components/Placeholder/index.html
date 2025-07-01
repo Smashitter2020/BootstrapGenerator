@@ -34,6 +34,14 @@
     </select>
   </div>
   <div class="mb-3">
+    <label for="placeholderAnim" class="form-label">Placeholder Animation:</label>
+    <select id="placeholderAnim" class="form-select">
+      <option value="" selected>No animation</option>
+      <option value="placeholder-glow">Glow</option>
+      <option value="placeholder-wave">Wave</option>
+    </select>
+  </div>
+  <div class="mb-3">
     <label for="columnWidth" class="form-label">Width (columns):</label>
     <input id="columnWidth" type="range" class="form-range" min="1" max="12" value="6">
   </div>
@@ -46,8 +54,9 @@
       const color = document.getElementById("placeholderColor").value;
       const width = document.getElementById("columnWidth").value;
       const size = document.getElementById("placeholderSize").value;
+      const animation = document.getElementById("placeholderAnim").value;
 
-      const placeholderHTML = `<span class="placeholder col-${width} bg-${color}${size}"></span>`;
+      const placeholderHTML = `<p class="${animation}"><span class="placeholder col-${width} bg-${color}${size}"></span></p>`;
       document.getElementById("preview").innerHTML = placeholderHTML;
       document.getElementById("codeBox").textContent = placeholderHTML;
     }
