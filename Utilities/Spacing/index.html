@@ -11,7 +11,8 @@
 <body>
   <div class="container">
   <h2>Bootstrap 5 Spacing Generator</h2>
-  <div class="mb-3">
+  <div class="row mb-3">
+  <div class="col">
     <label for="paddingSpacing" class="form-label">Padding:</label>
     <select id="paddingSpacing" class="form-select">
       <option value="0">0</option>
@@ -22,7 +23,7 @@
       <option value="5">5</option>
     </select>
   </div>
-  <div class="mb-3">
+  <div class="col">
     <label for="paddingHoriSpacing" class="form-label">Padding (horizontal):</label>
     <select id="paddingHoriSpacing" class="form-select">
       <option value="0">0</option>
@@ -33,7 +34,7 @@
       <option value="5">5</option>
     </select>
   </div>
-  <div class="mb-3">
+  <div class="col">
     <label for="paddingVertSpacing" class="form-label">Padding (vertical):</label>
     <select id="paddingVertSpacing" class="form-select">
       <option value="0">0</option>
@@ -44,7 +45,9 @@
       <option value="5">5</option>
     </select>
   </div>
-  <div class="mb-3">
+  </div>
+  <div class="row">
+  <div class="col">
     <label for="marginSpacing" class="form-label">Margin:</label>
     <select id="marginSpacing" class="form-select">
       <option value="0">0</option>
@@ -56,7 +59,7 @@
       <option value="auto">auto</option>
     </select>
   </div>
-  <div class="mb-3">
+  <div class="col">
     <label for="marginSpacing" class="form-label">Margin:</label>
     <select id="marginSpacing" class="form-select">
       <option value="0">0</option>
@@ -68,7 +71,7 @@
       <option value="auto">auto</option>
     </select>
   </div>
-  <div class="mb-3">
+  <div class="col">
     <label for="marginHoriSpacing" class="form-label">Margin (Horizontal):</label>
     <select id="marginHoriSpacing" class="form-select">
       <option value="0">0</option>
@@ -80,7 +83,7 @@
       <option value="auto">auto</option>
     </select>
   </div>
-  <div class="mb-3">
+  <div class="col">
     <label for="marginVertSpacing" class="form-label">Margin (Vertical):</label>
     <select id="marginVertSpacing" class="form-select">
       <option value="0">0</option>
@@ -91,6 +94,7 @@
       <option value="5">5</option>
       <option value="auto">auto</option>
     </select>
+  </div>
   </div>
   <button onclick="generateSize()" class="btn btn-primary">Generate</button>
   <div class="w-100 mt-3" style="height: 300px;">
