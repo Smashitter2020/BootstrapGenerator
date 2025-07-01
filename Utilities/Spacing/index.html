@@ -60,18 +60,6 @@
     </select>
   </div>
   <div class="col">
-    <label for="marginSpacing" class="form-label">Margin:</label>
-    <select id="marginSpacing" class="form-select">
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="auto">auto</option>
-    </select>
-  </div>
-  <div class="col">
     <label for="marginHoriSpacing" class="form-label">Margin (Horizontal):</label>
     <select id="marginHoriSpacing" class="form-select">
       <option value="0">0</option>
@@ -111,7 +99,7 @@
       const marginHori = document.getElementById("marginHoriSpacing").value;
       const marginVeri = document.getElementById("marginVertSpacing").value;
       
-      const boxHTML = `<div class="p-${padding} px-${paddingHori} py-${paddingVert} m-${margin} mx-${marginHori} my-${marginVert} text-bg-primary rounded">Hello, Bootstrap!</div>`;
+      const boxHTML = `<div class="w-50 p-${padding} px-${paddingHori} py-${paddingVert} m-${margin} mx-${marginHori} my-${marginVert} text-bg-primary rounded">Hello, Bootstrap!</div>`;
       
       document.getElementById("preview").innerHTML = boxHTML;
       document.getElementById("codeBox").textContent = boxHTML;
