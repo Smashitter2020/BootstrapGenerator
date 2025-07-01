@@ -23,8 +23,66 @@
     </select>
   </div>
   <div class="mb-3">
+    <label for="paddingHoriSpacing" class="form-label">Padding (horizontal):</label>
+    <select id="paddingHoriSpacing" class="form-select">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="paddingVertSpacing" class="form-label">Padding (vertical):</label>
+    <select id="paddingVertSpacing" class="form-select">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </div>
+  <div class="mb-3">
     <label for="marginSpacing" class="form-label">Margin:</label>
     <select id="marginSpacing" class="form-select">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="auto">auto</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="marginSpacing" class="form-label">Margin:</label>
+    <select id="marginSpacing" class="form-select">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="auto">auto</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="marginHoriSpacing" class="form-label">Margin (Horizontal):</label>
+    <select id="marginHoriSpacing" class="form-select">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="auto">auto</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="marginVertSpacing" class="form-label">Margin (Vertical):</label>
+    <select id="marginVertSpacing" class="form-select">
       <option value="0">0</option>
       <option value="1">1</option>
       <option value="2">2</option>
@@ -41,9 +99,13 @@
   <script>
     function generateSize() {
       const padding = document.getElementById("paddingSpacing").value;
+      const paddingHori = document.getElementById("paddingHoriSpacing").value;
+      const paddingVert = document.getElementById("paddingVertSpacing").value;
       const margin = document.getElementById("marginSpacing").value;
+      const marginHori = document.getElementById("marginHoriSpacing").value;
+      const marginVeri = document.getElementById("marginVertSpacing").value;
       
-      const boxHTML = `<div class="p-${padding} m-${margin} text-bg-primary rounded">Hello, Bootstrap!</div>`;
+      const boxHTML = `<div class="p-${padding} px-${paddingHori} py-${paddingVert} m-${margin} mx-${paddingHori} my-${paddingVert} text-bg-primary rounded">Hello, Bootstrap!</div>`;
       
       document.getElementById("preview").innerHTML = boxHTML;
       document.getElementById("codeBox").textContent = boxHTML;
