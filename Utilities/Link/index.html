@@ -29,6 +29,19 @@
     </select>
   </div>
   <div class="mb-3">
+    <label for="linkUnderlineColor" class="form-label">Link Underline Color:</label>
+    <select id="linkUnderlineColor" class="form-select">
+      <option value="primary">Primary</option>
+      <option value="secondary">Secondary</option>
+      <option value="success">Success</option>
+      <option value="danger">Danger</option>
+      <option value="warning">Warning</option>
+      <option value="info">Info</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+  </div>
+  <div class="mb-3">
     <label for="linkOpacity" class="form-label">Link Opacity:</label>
     <select id="linkOpacity" class="form-select">
       <option value="" selected>Default</option>
@@ -78,12 +91,13 @@
     function generateLink() {
       const label = document.getElementById("linkLabel").value.trim() || "Label";
       const color = document.getElementById("linkColor").value;
+      const underlineColor = document.getElementById("linkUnderlineColor").value;
       const opacity = document.getElementById("linkOpacity").value;
       const opacityUnderline = document.getElementById("underlineOpacity").value;
       const opacityHoverUnderline = document.getElementById("underlineHoverOpacity").value;
       const offsetLink = document.getElementById("linkOffset").value;
       
-      const linkHTML = `<a href="#" class="link-${color}${opacity}${opacityUnderline}${opacityHoverUnderline}${offsetLink}">${label}</a>`;
+      const linkHTML = `<a href="#" class="link-${color} link-underline-${underlineColor} ${opacity}${opacityUnderline}${opacityHoverUnderline}${offsetLink}">${label}</a>`;
       
       document.getElementById("preview").innerHTML = linkHTML;
       document.getElementById("codeBox").textContent = linkHTML;
