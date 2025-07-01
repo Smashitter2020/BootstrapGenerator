@@ -14,10 +14,10 @@
   <div class="mb-3">
     <label for="displayType" class="form-label">Display type:</label>
     <select id="displayType" class="form-select">
-      <option value="25">none</option>
-      <option value="50">block</option>
-      <option value="75">inline</option>
-      <option value="100" selected>flex</option>
+      <option value="none">none</option>
+      <option value="block">block</option>
+      <option value="inline">inline</option>
+      <option value="flex" selected>flex</option>
     </select>
   </div>
   <div class="mb-3">
@@ -32,9 +32,7 @@
     </select>
   </div>
   <button onclick="generateSize()" class="btn btn-primary">Generate</button>
-  <div class="w-100 mt-4" style="height: 400px;">
-    <div id="preview" class="h-100"></div>
-  </div>
+  <div id="preview" class="mt-3"></div>
   <pre id="codeBox" class="mt-3 bg-light p-3 rounded border"></pre>
   </div>
   <script>
