@@ -27,6 +27,15 @@
     </select>
   </div>
 
+  <div class="mb-3">
+    <label class="form-label">Size:</label>
+    <select id="inputSize" class="form-select">
+      <option value=" form-control-sm"> Small</option>
+      <option value="" selected>Default</option>
+      <option value=" form-control-lg"> Large</option>
+    </select>
+  </div>
+    
   <div class="form-check mb-3">
     <input class="form-check-input" type="checkbox" id="disabledCheck">
     <label class="form-check-label" for="disabledCheck">Disabled</label>
@@ -42,8 +51,9 @@
       const label = document.getElementById("labelText").value || "Label";
       const type = document.getElementById("inputType").value;
       const disabled = document.getElementById("disabledCheck").checked ? "disabled" : "";
+      const size = document.getElementById("inputSize").value;
 
-      const html = `<input type="${type}" class="form-control" placeholder="${label}" ${disabled}>`;
+      const html = `<input type="${type}" class="form-control${size}" placeholder="${label}" ${disabled}>`;
 
       document.getElementById("preview").innerHTML = html;
       document.getElementById("codeBox").textContent = html;
