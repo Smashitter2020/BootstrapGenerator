@@ -12,11 +12,11 @@
   <div class="container">
   <h2>Bootstrap 5 Toast Generator</h2>
   <div class="mb-3">
-    <label for="toastContent">Toast Content:</label>
-    <input type="text" id="toastContent" placeholder="e.g. Hello world! This is a toast message." class="form-control">
+    <label for="toastContent" class="form-label">Toast Content:</label>
+    <textarea rows="4" id="toastContent" placeholder="e.g. Hello world! This is a toast message." class="form-control"></textarea>
   </div>
   <div class="mb-3">
-    <label for="toastTitle">Toast Header Title:</label>
+    <label for="toastTitle" class="form-label">Toast Header Title:</label>
     <input type="text" id="toastTitle" placeholder="e.g. Bootstrap" class="form-control">
   </div>
   <button onclick="generateToast()" class="btn btn-outline-dark">Generate Toast</button>
