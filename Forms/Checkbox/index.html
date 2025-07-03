@@ -39,11 +39,12 @@
       const isChecked = document.getElementById("isChecked").checked ? " checked" : "";
       const isDisabled = document.getElementById("isDisabled").checked ? " disabled" : "";      
 
-      document.getElementById("preview").innerHTML = `<div class="form-check">
+      const preview = `<div class="form-check">
   <input type="checkbox" class="form-check-input" id="myCheckbox"${isChecked}${isDisabled}>
   <label class="form-check-label" for="myCheckbox">${label}</label>
 </div>`;
-      document.getElementById("codeBox").textContent = wrapper;
+      document.getElementById("preview").innerHTML = preview;
+      document.getElementById("codeBox").textContent = preview;
     }
   </script>
 </body>
