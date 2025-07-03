@@ -17,6 +17,15 @@
     <input type="text" id="pageLabel" class="form-control" placeholder="e.g. 1">
   </div>
 
+  <div class="mb-3">
+    <label class="form-label">Size:</label>
+    <select id="paginationSize" class="form-select">
+      <option value=" pagination-sm">Small</option>
+      <option value="" selected>Default</option>
+      <option value=" pagination-lg">Large</option>
+    </select>
+  </div>
+
   <div class="form-check mb-2">
     <input class="form-check-input" type="checkbox" id="activeCheck">
     <label class="form-check-label" for="activeCheck">Mark as Active</label>
@@ -51,8 +60,9 @@
     }
 
     function updatePagination() {
+      const size = document.getElementById("paginationSize").value;
       const ul = document.createElement("ul");
-      ul.className = "pagination";
+      ul.className = `pagination${size}`;
 
       pages.forEach(({ label, isActive, isDisabled }) => {
         const li = document.createElement("li");
