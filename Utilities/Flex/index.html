@@ -12,11 +12,19 @@
   <div class="container">
   <h2>Bootstrap 5 Flex Generator</h2>
   <div class="mb-3">
-    <label class="form-label">Flex Direction:</label>
+    <label class="form-label">Flex Row Direction:</label>
     <select id="flexDirection" class="form-select">
       <option value="" selected">None</option>
       <option value=" flex-row">Flex row</option>
       <option value=" flex-row-reverse">Flex row reverse</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Flex Column Direction:</label>
+    <select id="columnDirection" class="form-select">
+      <option value="" selected">None</option>
+      <option value=" flex-row">Flex column</option>
+      <option value=" flex-row-reverse">Flex column reverse</option>
     </select>
   </div>
   <button onclick="generateFlex()" class="btn btn-primary" disabled>Generate</button>
@@ -26,8 +34,9 @@
   <script>
     function generateFlex() {
       const direction = document.getElementById("flexDirection").value;
+      const colDirection = document.getElementById("columnDirection").value;
       
-      const boxHTML = `<div class="d-flex${direction}"><div class="p-2">Flex item 1</div><div class="p-2">Flex item 2</div><div class="p-2">Flex item 3</div></div>`;
+      const boxHTML = `<div class="d-flex${direction}${colDirection}"><div class="p-2">Flex item 1</div><div class="p-2">Flex item 2</div><div class="p-2">Flex item 3</div></div>`;
       
       document.getElementById("preview").innerHTML = boxHTML;
       document.getElementById("codeBox").textContent = boxHTML;
