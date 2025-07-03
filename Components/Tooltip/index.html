@@ -40,7 +40,7 @@
     function generateTooltip() {
       const content = document.getElementById("tooltipContent").value.trim() || "And here’s some amazing content. It’s very engaging. Right?";
       const placement = document.getElementById("tooltipPlacement").value;
-      const label = document.getElementById("btnText").value.trim() || "Toggle popover";
+      const label = document.getElementById("btnText").value.trim() || "Tooltip button";
       
       const buttonHTML = `<button class="btn btn-primary" data-bs-toggle="tooltip" data-bs-content="${content}" data-bs-placement="${placement}">${label}</button>`;
       document.getElementById("preview").innerHTML = buttonHTML;
