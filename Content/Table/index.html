@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bootstrap Table Generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body { padding: 2rem; }
+    .output-table { margin-top: 20px; }
+  </style>
+</head>
+<body class="p-4">
+
+  <div class="container">
+    <h2 class="mb-4">Bootstrap 5 Table Generator</h2>
+
+    <form id="tableForm" class="row g-3">
+      <div class="mb-3">
+        <label for="rows" class="form-label">Rows</label>
+        <input type="number" class="form-control" id="rows" value="3" min="1" max="100" />
+      </div>
+
+      <div class="mb-3">
+        <label for="columns" class="form-label">Columns</label>
+        <input type="number" class="form-control" id="columns" value="4" min="1" max="100" />
+      </div>
+
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary w-100">Generate Table</button>
+      </div>
+    </form>
+
+    <div id="tableOutput" class="output-table"></div>
+    <pre id="codeBox" class="bg-light p-3 rounded border"></pre>
+  </div>
+
+  <script>
+    const form = document.getElementById('tableForm');
+    const output = document.getElementById('tableOutput');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const rows = parseInt(document.getElementById('rows').value);
+      const cols = parseInt(document.getElementById('columns').value);
+      let table = `<table class="table table-bordered table-striped table-hover">
+  <thead>
+    <tr>`;
+
+      for (let c = 1; c <= cols; c++) {
+        table += `<th>Header ${c}</th>`;
+      }
+      table += `
+    </tr>
+  </thead>
+  <tbody>`;
+
+      for (let r = 1; r <= rows; r++) {
+        table += '<tr>';
+        for (let c = 1; c <= cols; c++) {
+          table += `<td>Row ${r} Col ${c}</td>`;
+        }
+        table += '</tr>';
+      }
+
+      table += `
+  </tbody>
+</table>`;
+      output.innerHTML = table;
+      document.getElementById("codeBox").textContent = table;
+    });
+  </script>
+
+</body>
+</html>
