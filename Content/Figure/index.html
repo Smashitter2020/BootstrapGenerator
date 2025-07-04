@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap Figure Generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { padding: 2rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Bootstrap 5 Figure Generator</h2>
+    <div class="mb-3">
+      <label class="form-label">Image URL:</label>
+      <input type="text" id="imgUrl" placeholder="https://example.com/image.jpg" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Alt Text:</label>
+      <input type="text" id="altText" placeholder="Describe the image" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Caption:</label>
+      <input type="text" id="caption" placeholder="This is a caption." class="form-control">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Alignment:</label>
+      <select id="alignment" class="form-select">
+        <option value="text-start">Left</option>
+        <option value="text-center" selected>Center</option>
+        <option value="text-end">Right</option>
+      </select>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="rounded">
+      <label class="form-check-label" for="rounded">Rounded</label>
+    </div>
+    <div class="form-check mb-3">
+      <input class="form-check-input" type="checkbox" value="" id="responsive" checked>
+      <label class="form-check-label" for="responsive">Responsive</label>
+    </div>
+  <button onclick="generateFigure()" class="btn btn-primary">Generate</button>
+  
+  <div id="preview"></div>
+  <pre id="codeBox" class="rounded bg-light p-3 border"></pre>
+</div>
+
+<script>
+  function generateFigure() {
+    const url = document.getElementById("imgUrl").value;
+    const alt = document.getElementById("altText").value;
+    const caption = document.getElementById("caption").value;
+    const alignment = document.getElementById("alignment").value;
+    const rounded = document.getElementById("rounded").checked ? " rounded" : "";
+    const responsive = document.getElementById("responsive").checked ? " img-fluid" : "";
+    
+    const html = 
+`<figure class="${alignment}">
+  <img src="${url}" alt="${alt}" class="${responsive}${rounded}">
+  <figcaption class="figure-caption">${caption}</figcaption>
+</figure>`;
+
+    document.getElementById("preview").innerHTML = html;
+    document.getElementById("codeBox").textContent = html;
+  }
+</script>
+</body>
+</html>
