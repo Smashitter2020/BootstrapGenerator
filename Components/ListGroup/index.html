@@ -21,6 +21,10 @@
     <input class="form-check-input" type="checkbox" id="actionCheck">
     <label class="form-check-label" for="actionCheck">Action</label>
   </div>
+  <div class="form-check mb-3">
+    <input class="form-check-input" type="checkbox" id="horizontalCheck">
+    <label class="form-check-label" for="horizontalCheck">Horizontal</label>
+  </div>
 
   <button onclick="addItem()" class="btn btn-outline-success me-2">Add Item</button>
   <button onclick="removeItem()" class="btn btn-outline-danger">Remove Last</button>
@@ -51,10 +55,11 @@
     }
 
     function updateCode() {
+      const horizontal = document.getElementById("horizontalCheck").checked ? " list-group-horizontal" : "";
       const items = [...document.getElementById("listGroup").children]
         .map(li => li.outerHTML)
         .join("\n");
-      const html = `<ul class="list-group">\n${items}\n</ul>`;
+      const html = `<ul class="list-group${horizontal}">\n${items}\n</ul>`;
       document.getElementById("codeBox").textContent = html;
     }
   </script>
