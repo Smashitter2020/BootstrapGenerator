@@ -13,16 +13,17 @@
 <body class="p-4">
 
   <div class="container">
-    <h2 class="mb-4">Bootstrap 5 Table Generator</h2>
+    <h2>Bootstrap 5 Table Generator</h2>
+    <div class="alert alert-warning"><strong>Heads up!</strong> Too many rows and columns in the table can affect performance, and make loading times longer.</div>
 
     <form id="tableForm" class="row g-3">
       <div class="mb-3">
-        <label for="rows" class="form-label">Rows</label>
+        <label for="rows" class="form-label">Rows:</label>
         <input type="number" class="form-control" id="rows" value="3" min="1" max="100" />
       </div>
 
       <div class="mb-3">
-        <label for="columns" class="form-label">Columns</label>
+        <label for="columns" class="form-label">Columns:</label>
         <input type="number" class="form-control" id="columns" value="4" min="1" max="100" />
       </div>
 
@@ -50,8 +51,7 @@
       for (let c = 1; c <= cols; c++) {
         table += `<th>Header ${c}</th>`;
       }
-      table += `
-    </tr>
+      table += `</tr>
   </thead>
   <tbody>`;
 
@@ -63,8 +63,7 @@
         table += '</tr>';
       }
 
-      table += `
-  </tbody>
+      table += `</tbody>
 </table>`;
       output.innerHTML = table;
       document.getElementById("codeBox").textContent = table;
