@@ -17,6 +17,21 @@
     <input type="text" id="itemText" class="form-control" placeholder="e.g. Task 1">
   </div>
 
+  <div class="mb-3">
+    <label class="form-label">List Item Color:</label>
+    <select class="form-select" id="listItemColor">
+      <option value="">Default</option>
+      <option value=" list-group-item-primary">Primary</option>
+      <option value=" list-group-item-secondary">Secondary</option>
+      <option value=" list-group-item-success">Success</option>
+      <option value=" list-group-item-danger">Danger</option>
+      <option value=" list-group-item-warning">Warning</option>
+      <option value=" list-group-item-info">Info</option>
+      <option value=" list-group-item-light">Light</option>
+      <option value=" list-group-item-dark">Dark</option>
+    </select>
+  </div>
+   
   <div class="form-check mb-3">
     <input class="form-check-input" type="checkbox" id="actionCheck">
     <label class="form-check-label" for="actionCheck">Action</label>
@@ -40,7 +55,8 @@
       const text = document.getElementById("itemText").value.trim() || "New Item";
       const li = document.createElement("li");
       const action = document.getElementById("actionCheck").checked ? " list-group-item-action" : "";
-      li.className = `list-group-item${action}`;
+      const color = document.getElementById("listItemColor").value;
+      li.className = `list-group-item${action}${color}`;
       li.textContent = text;
       document.getElementById("listGroup").appendChild(li);
       updateCode();
