@@ -33,6 +33,11 @@
     <input type="text" id="navText" class="form-control" placeholder="e.g. Home">
   </div>
 
+  <div class="form-check mb-3">
+    <input class="form-check-input" type="checkbox" id="fluidCheck">
+    <label class="form-check-label" for="fluidCheck">Make navbar container fluid</label>
+  </div>
+
   <button onclick="addNavItem()" class="btn btn-outline-success me-2">Add Navigation Item</button>
   <button onclick="removeNavItem()" class="btn btn-outline-danger">Remove Last</button>
 
@@ -56,13 +61,14 @@
     function updateNavbar() {
       const brand = document.getElementById("brandName").value.trim() || "Brand";
       const responsive = document.getElementById("expandResponsive").value;
+      const fluid = document.getElementById("fluidCheck").checked ? "container-fluid" : "container";
       const navLinks = navItems.map((text, i) =>
         `<li class="nav-item"><a class="nav-link" href="#">${text}</a></li>`
       ).join("\n");
 
       const html = `
 <nav class="navbar navbar-expand-${responsive} navbar-light bg-light">
-  <div class="container-fluid">
+  <div class="${fluid}">
     <a class="navbar-brand" href="#">${brand}</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
