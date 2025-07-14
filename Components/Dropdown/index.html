@@ -42,6 +42,7 @@
       const a = document.createElement("a");
       a.className = "dropdown-item";
       a.href = "#";
+      
       a.textContent = text;
       li.appendChild(a);
       document.getElementById("dropdownMenu").appendChild(li);
@@ -58,6 +59,7 @@
 
     function updateCode() {
       const html = document.getElementById("dropdownWrapper").outerHTML;
+      html.className = `${placement}`;
       document.getElementById("codeBox").textContent = html;
     }
 
